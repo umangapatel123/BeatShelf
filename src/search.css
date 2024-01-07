@@ -1,0 +1,276 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.container {
+    min-height: 100%;
+}
+
+.main {
+    overflow: auto;
+    padding-bottom: 100px;
+}
+
+.header-color {
+    background-color: rgb(0, 0, 0);
+    z-index: 100;
+    position: fixed;
+    width: 100%;
+    height: 155px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.6);
+
+
+}
+
+.disk {
+    position: fixed;
+    margin-top: 150px;
+    margin-left: 290px;
+    /* border: 2px solid white; */
+}
+
+.album-photo {
+    position: fixed;
+    margin-top: 135px;
+    margin-left: 40px;
+    /* border: 2px solid white; */
+
+}
+
+.album-photo img {
+
+    border-radius: 15px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 2);
+}
+
+body {
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-family: 'Baloo Bhai', cursive;
+    background-image: url(./images/image13.jpg);
+    background-size: 100%;
+    /* background-size: auto; */
+    background-size: cover;
+    background-attachment: fixed
+}
+
+.footer {
+    /* background-color: red; */
+    position: relative;
+    text-align: center;
+    font-size: 18px;
+    height: 100px;
+    margin-top: 100px;
+    clear: both;
+}
+
+.left {
+    display: inline-block;
+    position: fixed;
+    left: 84px;
+    top: 14px;
+    z-index: 10000;
+}
+
+.left img {
+    width: 500px;
+
+}
+
+.mid {
+    display: inline-block;
+    position: fixed;
+    left: 284px;
+    top: 125px;
+    font-style: italic;
+    font-size: 18px;
+    z-index: 10000;
+    /* font-weight: 100; */
+    /* https://fonts.google.com/specimen/Nanum+Brush+Script */
+}
+
+.right {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: end;
+    /* border: 2px solid red; */
+    position: fixed;
+    margin-top: 66px;
+    z-index: 10000;
+    /* right: 132px;
+    top: 66px; */
+}
+
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 132px;
+    padding-left: 600px;
+}
+
+.navbar li {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.navbar li a {
+    display: flex;
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    position: relative;
+    padding: 20px 20px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.navbar li a::after {
+    content: '';
+    width: 0;
+    background: rgb(226, 226, 108);
+    height: 3px;
+    position: absolute;
+    bottom: 0;
+    left: 15%;
+    transform-origin: left;
+    transition: width 0.5s;
+}
+
+.navbar li a:hover::after {
+    width: 70%;
+    left: 15%;
+}
+
+.navbar li a.active {
+    color: rgb(226, 226, 108);
+}
+
+.navbar li a.active::after {
+    width: 70%;
+    left: 15%;
+}
+
+.centre_text {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    /* border: 2px solid red; */
+    width: 40%;
+    margin-left: 30%;
+    margin-right: 30%;
+    position: absolute;
+    justify-content: center;
+    text-align: center;
+    margin-top: 500px;
+    /* left: 50%;
+    top: 50%; */
+    /* transform: translate(-50%, -50%); */
+}
+
+.itunes {
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; */
+    margin-top: 200px;
+}
+
+.search-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    /* padding: 100px; */
+}
+
+.search-bar input[type="text"] {
+    width: 780px;
+    height: 17px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-bar button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.search-bar button[type="submit"]:hover {
+    background-color: #3e8e41;
+}
+
+.result-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.result-list {
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: center; */
+    /* how to adjuct content to center*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* flex-direction: column; */
+    margin-top: 20px;
+
+
+}
+
+.result-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #ccc;
+}
+
+.result-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.result-item h3 {
+    margin: 10px 0;
+    font-size: 18px;
+    text-align: center;
+}
+
+.result-item p {
+    margin: 10px 0;
+    font-size: 14px;
+    text-align: center;
+}
+
+.result-item audio {
+    width: 100%;
+}

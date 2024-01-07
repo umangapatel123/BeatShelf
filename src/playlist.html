@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Favourites &hearts;</title>
+    <link rel="icon" href="./images/title-logo.png" type="image/x-icon">
+
+</head>
+<link href="https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./playlist.css" type="text/css">
+
+<body>
+    <script>
+        window.addEventListener("load", activateStickyFooter);
+
+        function activateStickyFooter() {
+            adjustFooterCssTopToSticky();
+            window.addEventListener("resize", adjustFooterCssTopToSticky);
+        }
+
+        function adjustFooterCssTopToSticky() {
+            const footer = document.querySelector("#footer");
+            const bounding_box = footer.getBoundingClientRect();
+            const footer_height = bounding_box.height;
+            const window_height = window.innerHeight;
+            const above_footer_height = bounding_box.top - getCssTopAttribute(footer);
+            if (above_footer_height + footer_height <= window_height) {
+                const new_footer_top = window_height - (above_footer_height + footer_height);
+                footer.style.top = new_footer_top + "px";
+            } else if (above_footer_height + footer_height > window_height) {
+                footer.style.top = null;
+            }
+        }
+
+        function getCssTopAttribute(htmlElement) {
+            const top_string = htmlElement.style.top;
+            if (top_string === null || top_string.length === 0) {
+                return 0;
+            }
+            const extracted_top_pixels = top_string.substring(0, top_string.length - 2);
+            return parseFloat(extracted_top_pixels);
+        }
+    </script>
+    <div class="header-color">
+
+    </div>
+    <div class="container">
+        <div class="main">
+
+            <div class="left" style="z-index: 100;">
+                <img src="./images/logonew.png">
+            </div>
+            <div class="mid" style="z-index: 100;">
+                #1 Music Rating Website
+            </div>
+            <div class="right" style="z-index: 100;">
+                <ul class="navbar">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="artist.html">Artist Page</a></li>
+                    <li><a href="spotlight.html">Spotlight</a></li>
+                    <li><a href="search.html">Search</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="playlist.html" class="active">Playlist</a></li>
+
+                </ul>
+            </div>
+
+
+        </div>
+</body>
+<div class="disk">
+    <img src="./images/Albums/Arijit/giphy.gif" alt="disk">
+</div>
+<div class="album-photo" style="position: fixed;margin-left: 95px;">
+    <img src="./images/Playlist/playlist-cover.png" alt="image" style="position:fixed;height: 480px;margin-top: 15px;">
+</div>
+<div class="album-name"
+    style="margin-top: 680px;margin-left: 100px;font-size: 55px; color: rgb(255, 255, 255);text-shadow: 2px;position: fixed;">
+    Your Favourites <a class="heart">
+
+        &hearts;
+    </a>
+</div>
+<!-- <div class="song-flex" style="margin-top: 0px;">
+
+</div> -->
+<div class="song-flex" style="margin-top: 100px;margin-left: 950px;">
+
+    <div id="alert-box" class="alert-box">
+        <div class="alert-content">
+            <span id="alert-message"></span>
+        </div>
+    </div>
+
+</div>
+
+<footer id="footer" class="footer" style="margin-bottom: 0;">
+    <p>Copyright &copy 2023 BeatShelf. All Rights Reserved.</p>
+    <a href="index.html">Home</a> | <a href="artist.html">Artist Page</a> | <a href="about.html"> About </a>
+
+
+</footer>
+</div>
+<script src="./playlist.js"></script>
+</body>
+
+</html>

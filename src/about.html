@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <style>
+        body {
+            margin-top: 20px;
+            background: #eee;
+
+            font-family: 'Baloo Bhai', cursive;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        .container {
+            min-height: 100%;
+        }
+
+        .main {
+            overflow: auto;
+            padding-bottom: 100px;
+        }
+
+        body {
+            color: white;
+            margin: 0;
+            padding: 0;
+            font-family: 'Baloo Bhai', cursive;
+            background-image: url(./images/about_bg.jpg);
+            background-size: 100%;
+            /* background-size: auto; */
+            background-size: cover;
+            background-attachment: fixed
+        }
+
+        .header-color {
+            background-color: #000000;
+            z-index: 100;
+            position: fixed;
+            width: 100%;
+            height: 155px;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.6);
+
+
+        }
+
+        .footer {
+            /* background-color: red; */
+            position: relative;
+            text-align: center;
+            font-size: 18px;
+            height: 100px;
+            margin-top: 100px;
+            clear: both;
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: blue
+        }
+
+        .left {
+            display: inline-block;
+            position: fixed;
+            left: 84px;
+            top: 14px;
+            z-index: 10000;
+        }
+
+        .left img {
+            width: 500px;
+
+        }
+
+        .mid {
+            display: inline-block;
+            position: fixed;
+            left: 284px;
+            top: 125px;
+            font-style: italic;
+            font-size: 18px;
+            z-index: 10000;
+            /* font-weight: 100; */
+            /* https://fonts.google.com/specimen/Nanum+Brush+Script */
+        }
+
+        .right {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            justify-content: end;
+            /* border: 2px solid red; */
+            position: fixed;
+            margin-top: 66px;
+            z-index: 10000;
+            /* right: 132px;
+    top: 66px; */
+        }
+
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            margin-right: 132px;
+            padding-left: 600px;
+        }
+
+        .navbar li {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .navbar li a {
+            display: flex;
+            color: white;
+            font-size: 20px;
+            text-decoration: none;
+            position: relative;
+            padding: 20px 20px;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .navbar li a::after {
+            content: '';
+            width: 0;
+            background: rgb(226, 226, 108);
+            height: 3px;
+            position: absolute;
+            bottom: 0;
+            left: 15%;
+            transform-origin: left;
+            transition: width 0.5s;
+        }
+
+        .navbar li a:hover::after {
+            width: 70%;
+            left: 15%;
+        }
+
+        .navbar li a.active {
+            color: rgb(226, 226, 108);
+        }
+
+        .navbar li a.active::after {
+            width: 70%;
+            left: 15%;
+        }
+
+        .centre_text {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            /* border: 2px solid red; */
+            width: 40%;
+            margin-left: 30%;
+            margin-right: 30%;
+            position: absolute;
+            justify-content: center;
+            text-align: center;
+            margin-top: 500px;
+            /* left: 50%;
+    top: 50%; */
+            /* transform: translate(-50%, -50%); */
+        }
+
+        .single_advisor_profile {
+            position: relative;
+            margin-bottom: 50px;
+            -webkit-transition-duration: 500ms;
+            transition-duration: 500ms;
+            z-index: 1;
+            border-radius: 15px;
+            -webkit-box-shadow: 0 0.25rem 1rem 0 rgba(47, 91, 234, 0.125);
+            box-shadow: 0 0.25rem 1rem 0 rgba(47, 91, 234, 0.125);
+        }
+
+        .single_advisor_profile .advisor_thumb {
+            position: relative;
+            z-index: 1;
+            width: 300px;
+            border-radius: 15px 15px 0 0;
+            margin: 0 auto;
+            padding: 3px 3px 0 3px;
+            background-color: #234fad;
+            overflow: hidden;
+        }
+
+        .single_advisor_profile .advisor_thumb::after {
+            -webkit-transition-duration: 500ms;
+            transition-duration: 500ms;
+            position: absolute;
+            width: 150%;
+            height: 80px;
+            bottom: -45px;
+            left: -25%;
+            content: "";
+            background-color: #ffffff;
+            -webkit-transform: rotate(-15deg);
+            transform: rotate(-15deg);
+        }
+
+        @media only screen and (max-width: 575px) {
+            .single_advisor_profile .advisor_thumb::after {
+                height: 160px;
+                bottom: -90px;
+            }
+        }
+
+        .single_advisor_profile .advisor_thumb .social-info {
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+            bottom: 0;
+            right: 30px;
+            text-align: right;
+        }
+
+        .single_advisor_profile .advisor_thumb .social-info a {
+            font-size: 14px;
+            color: #020710;
+            padding: 0 5px;
+        }
+
+        .single_advisor_profile .advisor_thumb .social-info a:hover,
+        .single_advisor_profile .advisor_thumb .social-info a:focus {
+            color: #4173ad;
+        }
+
+        .single_advisor_profile .advisor_thumb .social-info a:last-child {
+            padding-right: 0;
+        }
+
+        .single_advisor_profile .single_advisor_details_info {
+            position: relative;
+            z-index: 1;
+            padding: 30px 30px 30px 30px;
+            /* left: 450px; */
+            align-items: center;
+            width: 300px;
+            text-align: right;
+            -webkit-transition-duration: 500ms;
+            transition-duration: 500ms;
+            border-radius: 0 0 15px 15px;
+            background-color: #ffffff;
+        }
+
+        .single_advisor_profile .single_advisor_details_info::after {
+            -webkit-transition-duration: 500ms;
+            transition-duration: 500ms;
+            position: absolute;
+            z-index: 1;
+            width: 50px;
+            height: 3px;
+            background-color: #40599e;
+            content: "";
+            top: 12px;
+            right: 30px;
+        }
+
+        .single_advisor_profile .single_advisor_details_info h6 {
+            margin-bottom: 0.25rem;
+            -webkit-transition-duration: 500ms;
+            transition-duration: 500ms;
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+            .single_advisor_profile .single_advisor_details_info h6 {
+                font-size: 14px;
+
+            }
+        }
+
+        .single_advisor_profile .single_advisor_details_info p {
+            -webkit-transition-duration: 500ms;
+            transition-duration: 500ms;
+            width: 300px;
+            margin-bottom: 0;
+            font-size: 14px;
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+            .single_advisor_profile .single_advisor_details_info p {
+                font-size: 12px;
+            }
+        }
+
+        .single_advisor_profile:hover .advisor_thumb::after,
+        .single_advisor_profile:focus .advisor_thumb::after {
+            background-color: #5d98e5;
+        }
+
+        .single_advisor_profile:hover .advisor_thumb .social-info a,
+        .single_advisor_profile:focus .advisor_thumb .social-info a {
+            color: #ffffff;
+        }
+
+        .single_advisor_profile:hover .advisor_thumb .social-info a:hover,
+        .single_advisor_profile:hover .advisor_thumb .social-info a:focus,
+        .single_advisor_profile:focus .advisor_thumb .social-info a:hover,
+        .single_advisor_profile:focus .advisor_thumb .social-info a:focus {
+            color: #ffffff;
+        }
+
+        .single_advisor_profile:hover .single_advisor_details_info,
+        .single_advisor_profile:focus .single_advisor_details_info {
+            background-color: #5da3e5;
+        }
+
+        .single_advisor_profile:hover .single_advisor_details_info::after,
+        .single_advisor_profile:focus .single_advisor_details_info::after {
+            background-color: #ffffff;
+        }
+
+        .single_advisor_profile:hover .single_advisor_details_info h6,
+        .single_advisor_profile:focus .single_advisor_details_info h6 {
+            color: #ffffff;
+        }
+
+        .single_advisor_profile:hover .single_advisor_details_info p,
+        .single_advisor_profile:focus .single_advisor_details_info p {
+            color: #ffffff;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        }
+
+        .container .card {
+            position: relative;
+            width: 200px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.05);
+            margin: 10px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: left;
+            backdrop-filter: blur(10px);
+        }
+
+        .container .card .content {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transition: 0.5s;
+        }
+
+        .container .card:hover .content {
+            transform: translateY(-20px);
+        }
+
+        .container .card .content .imgBx {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            overflow: hidden;
+        }
+
+        .container .card .content .imgBx img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .container .card .content .contentBx h3 {
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+            font-size: 18px;
+            text-align: center;
+            margin: 20px 0 10px;
+            line-height: 1.1em;
+        }
+
+        .container .card .content .contentBx h3 span {
+            font-size: 12px;
+            font-weight: 300;
+            text-transform: initial;
+        }
+
+        .container .card .sci {
+            position: absolute;
+            bottom: 50px;
+            display: flex;
+        }
+
+        .container .card .sci li {
+            list-style: none;
+            margin: 0 10px;
+            transform: translateY(40px);
+            transition: 0.5s;
+            opacity: 0;
+        }
+
+        .container .card:hover .sci li {
+            transform: translateY(0px);
+            opacity: 1;
+        }
+
+        .container .card .sci li a {
+            color: #fff;
+            font-size: 20px;
+        }
+
+        html body {
+            background-color: black;
+            margin: 0 0 0 0;
+        }
+
+        .navi {
+            /* z-index: 100; */
+            position: fixed;
+            top: 0;
+            z-index: 99;
+            display: flex;
+            flex-wrap: wrap;
+            /* justify-content: center; */
+            margin: 20px;
+            justify-content: space-between;
+            align-items: center;
+            /* float:left; */
+            /* backdrop-filter: blur(10px); */
+
+        }
+
+        .navi .elem {
+            /* float: left; */
+            /* z-index: 100; */
+            position: absolute;
+            /* margin:20px; */
+            justify-content: space-between;
+            display: flex;
+            margin: 20px;
+            justify-content: center;
+            font-size: 30px;
+            /* border: 2px solid black; */
+            width: fit-content;
+            height: fit-content;
+            color: white;
+            /* background:rgba(255,255,255,0.1); */
+            position: relative;
+            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.03);
+            font-family: 'Delicious Handrawn', cursive;
+
+        }
+
+        .navi .elem:hover {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(20px);
+        }
+
+        .containerf .cardf {
+            position: relative;
+            width: 00px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.05);
+            /* margin: 10px; */
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            /* border-radius: 15px; */
+            display: flex;
+            justify-content: center;
+            align-items: left;
+            backdrop-filter: blur(10px);
+        }
+
+        .containerf {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        }
+
+        .containerf .cardf .contentf {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transition: 0.5s;
+        }
+
+        .about-us {
+            /* height: ; */
+            /* width: 100%; */
+            padding: 90px 0;
+            color: black;
+        }
+
+        .pic {
+            height: auto;
+            width: 302px;
+        }
+
+        .about {
+            width: 1130px;
+            max-width: 85%;
+            margin: 0 auto;
+            display: flex;
+            font-size: 30px;
+            align-items: center;
+            justify-content: space-around;
+        }
+    </style>
+    <link rel="icon" href="./images/title-logo.png" type="image/x-icon">
+
+</head>
+
+<link href="https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap" rel="stylesheet">
+
+<body>
+
+    <div class="header-color">
+
+    </div>
+    <div class="left" style="z-index: 100;">
+        <img src="./images/logonew.png">
+    </div>
+    <div class="mid" style="z-index: 100;">
+        #1 Music Rating Website
+    </div>
+    <div class="right" style="z-index: 100;">
+        <ul class="navbar">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="artist.html">Artist Page</a></li>
+            <li><a href="spotlight.html">Spotlight</a></li>
+            <li><a href="search.html">Search</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="playlist.html">Playlist</a></li>
+
+        </ul>
+    </div>
+
+    </div>
+    <pre>
+
+
+
+
+
+
+
+
+
+
+
+
+    </pre>
+    <a style="position:relative; text-align: center;font-size:100px; left: 700px; color: blue; 
+    text-shadow: 10px 10px 20px rgba(0, 0, 0, 0.6);">About us</a>
+    <section class="about-us">
+        <div class="about">
+            <!--<img src="girl.png" class="pic">-->
+            <div class="text">
+                <p>At our music rating website, we're all about celebrating the diversity and richness of the music
+                    world. From classical to jazz, from rock to hip-hop, and everything in between, we believe that
+                    every genre has something valuable to offer.</p>
+                <br />
+                <p>Our Website Contains Multiple Artists From Around the World. We Let Users Share Their Opinions About
+                    Theirs Favourite Artists and Albums.We Are Building a Community of Music Enthusiatist.</p>
+                <br />
+                <p>People Can Discover New Music Through our Website and RATE Songs,View Hot Favourite Songs And Albums.
+                    The Comment Feature Allows Them to Express Their Thoughts.</p>
+                <br />
+                <p>The Website Helps Grow This Community and Explore the beauty and complexity of the world's most
+                    powerful art form.</p>
+                <div class="data">
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+        </div>
+        <div class="row">
+            <!-- Single Advisor-->
+            <div class="col-12 col-sm-6 col-lg-3" style="width: 300px;">
+                <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.2s"
+                    style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                    <!-- Team Thumb-->
+                    <div class="advisor_thumb"><img src="./images/ansh.jpeg" alt="" height="315px">
+                        <!-- Social Info-->
+                        <div class="social-info"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i
+                                    class="fa fa-instagram"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></div>
+                    </div>
+                    <!-- Team Details-->
+                    <div class="single_advisor_details_info">
+                        <h6 style="font-size: 30px;">Ansh Shah</h6>
+                        <p style="font-size: 20px;" class="designation">ansh.shah@research.iiit.ac.in</p>
+                        <p class="designation">team member</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Single Advisor-->
+            <div class="col-12 col-sm-6 col-lg-3" style="width: 300px;">
+                <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.3s"
+                    style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+                    <!-- Team Thumb-->
+                    <div class="advisor_thumb"><img src="./images/umang.jpg" alt="" style="height: 400px;">
+                        <!-- Social Info-->
+                        <div class="social-info"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i
+                                    class="fa fa-whatsapp"></i></a><a href="#"><i class="fa fa-linkedin"></i></a></div>
+                    </div>
+                    <!-- Team Details-->
+                    <div class="single_advisor_details_info">
+                        <h6 style="font-size: 30px;">Umang Patel</h6>
+                        <p style="font-size: 20px;" class="designation">umang.patel@students.iiit.ac.in</p>
+                        <p class="designation">team member</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <footer class="footer">
+        <p>Copyright &copy 2023 BeatShelf. All Rights Reserved.</p>
+        <a href="index.html">Home</a> | <a href="artist.html">Artist Page</a> | <a href="about.html"> About </a>
+    </footer>
+</body>
+
+</html>
