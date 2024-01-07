@@ -7,6 +7,8 @@ This Website allows User to:
 - Browse a catalog of music albums.
 - View details about each album, including track listings and album art.
 - View Trending Artists,Albums and Tracks.
+- Search for their favourite songs and filter the results.
+- Rate our favourite artist and view the comments.
 ## Website Directory Structure
 
 
@@ -81,7 +83,7 @@ This Website allows User to:
 │   ├── download.jpeg
 │   ├── download.png
 │   ├── ed1.jpg
-│   ├── front-view-young-female-white-shirt-listening-music-pink-wall-color-woman-model-woman.jpg
+│   ├── form-background.avif
 │   ├── happy.jpg
 │   ├── headphones-disk.jpg
 │   ├── imag5.avif
@@ -126,6 +128,9 @@ This Website allows User to:
 │   │   ├── shreya_4.jpg
 │   │   ├── shreya_5.jpg
 │   │   └── ultimate_love_songs.jpeg
+│   ├── star.png
+│   ├── star_resized_desaturated.png
+│   ├── star_saturated.png
 │   └── umang.jpg
 ├── index.html
 ├── neha_kakkar_album1.html
@@ -135,6 +140,9 @@ This Website allows User to:
 ├── neha_kakkar_album5.html
 ├── neha_kakkar.html
 ├── rawfile.html
+├── search.css
+├── search.html
+├── search.js
 ├── shreya_ghoshal_album1.html
 ├── shreya_ghoshal_album2.html
 ├── shreya_ghoshal_album3.html
@@ -142,8 +150,11 @@ This Website allows User to:
 ├── shreya_ghoshal_album5.html
 ├── shreya_ghoshal.html
 ├── song.css
-└── style.css
-
+├── spotlight.css
+├── spotlight.html
+├── spotlight.js
+├── style.css
+└── test.js
 ```
 
 
@@ -162,14 +173,22 @@ Our Website can be opened on web Browsers with resolutions 1920 x 1080 for best 
     - Year of Release of the Album
 - The song page displays 5 songs of each album along with the length of each song.
 
-3. About:
+3. Searching and Rating:
+- With the inclusion of Search feature on nav bar, now the user can search for their favourite songs and filter the results by explicit and song duration.
+- The results displayed contains the name of the song, its artist and cover photo along with the ability to play its preview.
+- User can click on __Spotlight__ tab on navigation bar on each page to rate our favourite artist. The ratings given will be stored and displayed in tabular form (untill the page reloads).
+- The page also has the information of the artist with animations including : __zoom-in__,__zoom-out__ and __typeing effects__. The page also includes __countdown__ to upcoming album.
+
+4. Playlist:
+- Added Feature of Playlist.
+- USer Can Their Favorite Songs to Playlist Just By Clicking on Add to Playlist Button on Song Page.
+
+4. About:
 - We Have Listed the objectives of making this website.
 - We Also Included what is contains and what are feautres.
 - On Hovering Our Images You Can Get Information About Us.
-4. Footer:
+
+5. Footer:
 Footer Consists of Standard Footer text. It also consists of Link to Home, Artists Page and About Page. This footer is consistent all over the website.
-
-
-
 
 
